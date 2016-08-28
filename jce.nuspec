@@ -9,7 +9,7 @@
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>Tobse Fritz</owners>
     <summary>Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 7</summary>
-    <description>Downloads and installs the Java Cryptography Extension (JCE) to the leastest JDK. The The JAVA_HOME environment variable has to point to the JDK. If JAVA_HOME is not set, nothing will be changed. The original files are backuped (renamed to *_old) and can be reverted at any time.</description>
+    <description>Downloads and installs the Java Cryptography Extension (JCE) to the lastest JDK. The The JAVA_HOME environment variable has to point to the JDK. If JAVA_HOME is not set, nothing will be changed. The original files are backuped (renamed to *_old) and can be reverted at any time.</description>
     <projectUrl>https://github.com/TobseF/jce-chocolatey-package</projectUrl>
     <tags>java jce admin</tags>
     <copyright></copyright>
