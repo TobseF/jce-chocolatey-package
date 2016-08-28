@@ -7,7 +7,7 @@ function has_file($filename) {
 }
 
 function download-from-oracle($url, $output_filename) {
-    if (-not (has_file($output_fileName))) {
+    if (!(has_file($output_fileName))) {
         Write-Host  "Downloading JCE from $url"
 
         try {
@@ -29,31 +29,38 @@ function download-jce() {
     $filename = "UnlimitedJCEPolicyJDK$jce_version.zip"
     $url = "http://download.oracle.com/otn-pub/java/jce/$jce_version/$filename"
     $output_filename = Join-Path $script_path $filename
-	If(Test-Path $output_filename){}Else{
+	If(!(Test-Path $output_filename)){
 		$dummy = download-jce-file $url $output_filename
 	}
     return $output_filename
 }
 
-function get-jce-dir() {
-    $java_home = Get-EnvironmentVariable 'JAVA_HOME' -Scope 'Machine' -PreserveVariables
+function get-java-home(){
+    return Get-EnvironmentVariable 'JAVA_HOME' -Scope 'Machine' -PreserveVariables
+}
+
+function get-jce-dir($java_home) {
     return Join-Path $java_home 'jre\lib\security'
 }
 
 function chocolatey-install() {
-
-	$jce_dir = get-jce-dir
-	$already_patched_file = Join-Path $jce_dir 'local_policy_old.jar'
+    $java_home = get-java-home
+    if (!$java_home) { 
+        Write-Host "Couldnt find JAVA_HOME environment variable"
+        Write-Host "Skipping installation"
+    }else{
+    	$jce_dir = get-jce-dir $java_home
+	    $already_patched_file = Join-Path $jce_dir 'local_policy_old.jar'
 	
-	If(Test-Path $already_patched_file){
-		Write-Host "JCE already installed: $jce_dir"
-		Write-Host "Skipping installation"
-	}else{
-		Write-Host "JCE is not installed ($already_patched_file) is not present"
-		Write-Host "Starting installation"
-		install-jce $jce_dir
-	}
-	
+	    If(Test-Path $already_patched_file){
+		    Write-Host "JCE already installed: $jce_dir"
+		    Write-Host "Skipping installation"
+	    }else{
+		    Write-Host "JCE is not installed ($already_patched_file) is not present"
+		    Write-Host "Starting installation"
+		    install-jce $jce_dir
+	    }
+    }
 }
 
 function install-jce($jce_dir) {

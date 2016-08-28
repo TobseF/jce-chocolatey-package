@@ -1,7 +1,7 @@
 # JCE chocolatey package
 [Chocolatey](https://chocolatey.org/) package for the [JCE (Unlimited Strength Java Cryptography Extension Policy Files)](http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html)
 
-This chocolatey package adds the JCE to leatest installed Java SDK. The original files are backuped (renamed to `*_old`) and can be reverted at any time. This package is a perfect addion to the [JDK8 package](https://chocolatey.org/packages/jdk8).
+This chocolatey package adds the JCE to leatest installed Java SDK. The The `JAVA_HOME` environment variable has to point to the JDK. If `JAVA_HOME` is not set, nothing will be changed. The original files are backuped (renamed to `*_old`) and can be reverted at any time. This package is a perfect addion to the [JDK8 package](https://chocolatey.org/packages/jdk8).
 
 #### Install with [Chocolatey](https://chocolatey.org/)
 ```PowerShell

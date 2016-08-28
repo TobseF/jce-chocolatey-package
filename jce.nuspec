@@ -7,13 +7,13 @@
     <title>JCE (Java Cryptography Extension)</title>
     <version>7.0.0</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
-    <owners>Tobias Fritz</owners>
+    <owners>Tobse Fritz</owners>
     <summary>Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 7</summary>
-    <description>Installs the Java Cryptography Extension (JCE) to the leastest JDK</description>
-    <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</projectUrl>
+    <description>Downloads and installs the Java Cryptography Extension (JCE) to the leastest JDK. The The JAVA_HOME environment variable has to point to the JDK. If JAVA_HOME is not set, nothing will be changed. The original files are backuped (renamed to *_old) and can be reverted at any time.</description>
+    <projectUrl>https://github.com/TobseF/jce-chocolatey-package</projectUrl>
     <tags>java jce admin</tags>
     <copyright></copyright>
-    <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>
+    <licenseUrl>http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>http://cdn.rawgit.com/chocolatey/chocolatey-coreteampackages/50fd97744110dcbce1acde889c0870599c9d5584/icons/java.svg</iconUrl>
     <!--<dependencies>
